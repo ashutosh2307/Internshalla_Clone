@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p>Job Portal</p>
+            <div class="list-group">
+                <li class="list-group-item active">Info</li>
+                <a href="/jobs"><li class="list-group-item">All Jobs</li></a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <div class="caption-full">
+                   
+                    <h4><a><%=job.title%></a></h4>
+                    <p> <%= job.description %> </p>
+                    <p><em>Submitted By <%= job.author.username %></em></p>
+                    
+                        <a href="/jobs/<%= job._id%>/edit" class="btn btn-xs btn-warning">Edit</a>
+                        <form class="delete-form" action="/jobs/<%= job._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
